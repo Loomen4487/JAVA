@@ -1,0 +1,28 @@
+package landutils;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+
+public class LandManager {
+	public static Connection getConnection();{
+		Connection conn = null;
+		
+		try {
+			Class.forname("oracle.jdbc.OracleDriver");
+			
+			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+			String username = "landuseplan";
+			String password = "1234";
+			
+			conn = DriverManager.getConnection(url, username, password);
+		}catch(Exception e) {
+			e.printStackTrace();
+			
+			System.out.println("DB 연결 오류");
+		}
+		
+	}
+}

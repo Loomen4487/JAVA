@@ -1,0 +1,19 @@
+DROP TABLE landuse
+;
+
+CREATE TABLE landuse(
+	seq				NUMBER				PRIMARY KEY,	-- 순번
+	street 			varchar2(100)		NOT NULL,		-- 지번
+	content			varchar2(100)		NOT NULL,    	-- 주소, 지목, 면적
+	price			NUMBER								-- 가격 현시간 나오면서 가격대 나옴
+);
+
+COMMENT ON COLUMN landuse.seq IS '번호';
+COMMENT ON COLUMN landuse.street IS '지번';
+COMMENT ON COLUMN landuse.content IS '내용';
+COMMENT ON COLUMN landuse.price IS '가격';
+
+CREATE SEQUENCE seq_landuse_No
+		INCREMENT BY 1 
+	    START WITH 1
+;
